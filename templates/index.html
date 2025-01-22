@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container mx-auto my-10">
+      <h1 class="text-3xl font-bold text-center">Registered Users</h1>
+      {% for user in users %}
+      <div class="flex justify-between items-center my-5 p-5 bg-gray-100 rounded-lg">
+        <h2 class="text-xl font-bold">{{ user.name }}</h2>
+        <p class="text-gray-700">{{ user.email }}</p>
+        <img src="{{ user.image }}" alt="User Image" class="w-16 h-16 rounded-full" />
+        <a href="/user/{{ user.id }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"> View Profile </a>
+        <a href="/edit/{{ user.id }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2">Edit</a>
+        <a href="/delete/{{ user.id }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2">Delete</a>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ url_for('add') }}" class="bg-blue-500 hover:bg-blue-700 text-white ml-12 font-bold py-2 px-4 rounded mt-2">go to form</a>
+  </body>
+</html>
