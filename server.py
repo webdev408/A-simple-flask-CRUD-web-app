@@ -13,7 +13,7 @@ class User(db.Model):
   image = db.Column(db.String(120), unique=True, nullable=False)
 
   def __repr__(self):
-    return '<User %r>' % self.username
+    return '<User %r>' % self.name
   
 @app.route('/')
 def index():
